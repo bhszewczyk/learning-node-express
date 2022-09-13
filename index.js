@@ -28,6 +28,10 @@ app.get('/cats', (req, res) => {
 	res.send('MEOOOOOW!');
 });
 
+app.get('*', (req, res) => {
+	res.send("Didn't find such path. :(");
+});
+
 app.listen(3000, () => {
 	console.log('listening on port 3000...');
 });
