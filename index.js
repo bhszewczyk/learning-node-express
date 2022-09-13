@@ -28,6 +28,17 @@ app.get('/cats', (req, res) => {
 	res.send('MEOOOOOW!');
 });
 
+// Example:
+// http://localhost:3000/search?q=birds
+app.get('/search', (req, res) => {
+	const { q } = req.query;
+	if (!q) {
+		res.send('<h1>Nothing searched - nothing found!</h1>');
+	} else {
+		res.send(`<h1>Search results for: ${q}</h1>`);
+	}
+});
+
 app.get('*', (req, res) => {
 	res.send("Didn't find such path. :(");
 });
